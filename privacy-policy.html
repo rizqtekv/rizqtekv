@@ -1,65 +1,904 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumidoku privacy policy</title>
-<style>
-  body { font: 16px/1.6 system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; color: #1b1b2a; }
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.15rem; margin-top: 2rem; }
-  code { background: #eef; padding: 0 .25em; border-radius: 4px; }
-</style>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Lumidoku Privacy Policy</title>
+
+  <meta
+    name="description"
+    content="Lumidoku Privacy Policy. Learn how Lumidoku handles game data, backups, advertising, purchases, sharing and privacy choices."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f7f7ff"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Lumidoku Privacy Policy"
+  >
+
+  <meta
+    property="og:description"
+    content="Learn how Lumidoku handles game data, advertising, purchases, backups and sharing."
+  >
+
+  <style>
+    :root {
+      --bg: #f8f8fc;
+      --surface: #ffffff;
+      --surface-soft: #f1f1fb;
+
+      --text: #171725;
+      --text-soft: #4d4d61;
+      --muted: #707087;
+
+      --primary: #5b5bd6;
+      --primary-dark: #4545b7;
+      --primary-soft: #ededff;
+
+      --border: #e4e4ee;
+
+      --max-width: 900px;
+
+      --shadow:
+        0 20px 60px rgba(35, 35, 75, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(91, 91, 214, 0.12),
+          transparent 40%
+        ),
+        var(--bg);
+
+      line-height: 1.7;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--primary-dark);
+      font-weight: 650;
+    }
+
+    a:hover {
+      color: var(--primary);
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background:
+        rgba(248, 248, 252, 0.88);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(228, 228, 238, 0.85);
+    }
+
+    .nav {
+      width:
+        min(
+          calc(100% - 40px),
+          1120px
+        );
+
+      min-height: 72px;
+
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 11px;
+
+      color: var(--text);
+
+      font-weight: 850;
+
+      letter-spacing: -0.025em;
+
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          145deg,
+          #7777ea,
+          #4d4dc2
+        );
+
+      box-shadow:
+        0 8px 22px
+        rgba(91, 91, 214, 0.25);
+
+      font-weight: 900;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 7px;
+
+      color: var(--text-soft);
+
+      font-size: 0.92rem;
+
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      padding:
+        70px 0
+        90px;
+    }
+
+    .container {
+      width:
+        min(
+          calc(100% - 40px),
+          var(--max-width)
+        );
+
+      margin: 0 auto;
+    }
+
+    .policy-card {
+      padding:
+        clamp(26px, 5vw, 56px);
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        28px;
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      padding:
+        6px 12px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary-dark);
+
+      font-size:
+        0.78rem;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        0.02em;
+    }
+
+    h1 {
+      margin:
+        18px 0 8px;
+
+      font-size:
+        clamp(2.1rem, 5vw, 3.3rem);
+
+      line-height:
+        1.08;
+
+      letter-spacing:
+        -0.05em;
+    }
+
+    .updated {
+      margin:
+        0 0 35px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.9rem;
+    }
+
+    .intro {
+      margin:
+        0 0 35px;
+
+      padding:
+        20px 22px;
+
+      background:
+        var(--surface-soft);
+
+      border:
+        1px solid var(--border);
+
+      border-left:
+        4px solid var(--primary);
+
+      border-radius:
+        14px;
+
+      color:
+        var(--text-soft);
+    }
+
+    h2 {
+      margin:
+        42px 0 12px;
+
+      padding-top:
+        4px;
+
+      font-size:
+        1.35rem;
+
+      line-height:
+        1.25;
+
+      letter-spacing:
+        -0.025em;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      margin:
+        0 0 16px;
+
+      color:
+        var(--text-soft);
+    }
+
+    strong {
+      color:
+        var(--text);
+    }
+
+    ul {
+      margin:
+        0 0 18px;
+
+      padding-left:
+        22px;
+
+      color:
+        var(--text-soft);
+    }
+
+    li {
+      margin-bottom:
+        8px;
+    }
+
+    code {
+      padding:
+        2px 6px;
+
+      border-radius:
+        6px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary-dark);
+
+      font-size:
+        0.9em;
+    }
+
+    .contact-box {
+      margin-top:
+        42px;
+
+      padding:
+        22px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        16px;
+
+      background:
+        #fafaff;
+    }
+
+    .contact-box p {
+      margin:
+        0;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      padding:
+        30px 0
+        45px;
+
+      border-top:
+        1px solid var(--border);
+
+      color:
+        var(--muted);
+    }
+
+    .footer-inner {
+      width:
+        min(
+          calc(100% - 40px),
+          900px
+        );
+
+      margin:
+        0 auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      font-size:
+        0.86rem;
+    }
+
+    .footer-links {
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        18px;
+    }
+
+    .footer-links a {
+      color:
+        var(--muted);
+
+      text-decoration:
+        none;
+
+      font-weight:
+        600;
+    }
+
+    .footer-links a:hover {
+      color:
+        var(--primary);
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 700px) {
+
+      .nav {
+        width:
+          min(
+            calc(100% - 28px),
+            1120px
+          );
+
+        min-height:
+          64px;
+      }
+
+      .back-link {
+        font-size:
+          0.84rem;
+      }
+
+      main {
+        padding:
+          38px 0
+          55px;
+      }
+
+      .container {
+        width:
+          min(
+            calc(100% - 28px),
+            var(--max-width)
+          );
+      }
+
+      .policy-card {
+        padding:
+          25px 21px;
+
+        border-radius:
+          21px;
+      }
+
+      h1 {
+        font-size:
+          2.2rem;
+      }
+
+      h2 {
+        font-size:
+          1.2rem;
+      }
+
+      .footer-inner {
+        width:
+          min(
+            calc(100% - 28px),
+            900px
+          );
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior:
+          auto;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<h1>Lumidoku privacy policy</h1>
-<p>Last updated: 7 October 2026</p>
 
-<p>Lumidoku is an offline Sudoku game. This page explains what the app does with information. It is written
-in plain language; if something is unclear, write to <strong>support@rizqtek.com</strong>.</p>
+<!-- =========================
+     HEADER
+     ========================= -->
 
-<h2>What stays on your phone</h2>
-<p>Your games, statistics, streaks, settings and reminder choice are stored only on your device. Lumidoku has no
-account system and no server of its own, so we never receive this information. Uninstalling the app removes it.</p>
-<p>If you switch on the daily reminder, the notification is created on your phone at the time you chose. No
-information is sent anywhere to do this.</p>
+<header>
 
-<h2>Backup</h2>
-<p>If Android Auto Backup is switched on for your phone, your saved games and settings may be included in your Google
-account's device backup, so they can come back when you set up a new phone. That backup is managed by Google, not by us,
-and you can turn it off in your phone's settings.</p>
+  <div class="nav">
 
-<h2>Advertising</h2>
-<p>Lumidoku shows ads from Google AdMob. To show and measure ads, the AdMob software on your phone may collect
-and send to Google: your device's advertising ID, your approximate location (derived from your IP address), how
-you interact with ads, and diagnostic information such as crashes and performance. We do not receive this data
-about you personally. Google's use of it is described in the
-<a href="https://policies.google.com/technologies/ads">Google advertising policies</a> and
-<a href="https://policies.google.com/privacy">Google privacy policy</a>.</p>
-<p>If you are in the European Economic Area, the United Kingdom or another region that requires it, Lumidoku asks for
-your choice before any ad is requested. You can change it any time in <strong>Settings &rarr; Privacy options</strong>.
-On Android you can also reset your advertising ID or opt out of ads personalisation in your phone's
-<strong>Settings &rarr; Privacy &rarr; Ads</strong>.</p>
-<p>You can remove banner and full-screen ads permanently with the <strong>Remove Ads</strong> purchase. Watching a
-reward video is always optional.</p>
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Lumidoku home"
+    >
+      <span
+        class="brand-mark"
+        aria-hidden="true"
+      >
+        L
+      </span>
 
-<h2>Purchases</h2>
-<p>Purchases are processed by Google Play. We do not receive your payment details; we only learn, through Google Play,
-that the Remove Ads purchase is active so that ads can be switched off.</p>
+      <span>
+        Lumidoku
+      </span>
+    </a>
 
-<h2>Children</h2>
-<p>Lumidoku is meant for people aged 13 and over. It is not directed at children under 13, and ads are limited to
-teen-appropriate content.</p>
+    <a
+      class="back-link"
+      href="index.html"
+    >
+      ← Back to Lumidoku
+    </a>
 
-<h2>Sharing a puzzle</h2>
-<p>When you choose to share a result, the picture and challenge code are handed to the app you pick (for example a
-messenger). That is your choice each time; Lumidoku does not share anything on its own. A challenge code only contains
-the board type, difficulty, puzzle number and your time; it contains no personal information.</p>
+  </div>
 
-<h2>Changes</h2>
-<p>If this policy changes, the new version will be published at this address with a new date.</p>
+</header>
 
-<h2>Contact</h2>
-<p>Vajid Ali &middot; support@rizqtek.com</p>
+
+<!-- =========================
+     CONTENT
+     ========================= -->
+
+<main>
+
+  <div class="container">
+
+    <article class="policy-card">
+
+      <span class="eyebrow">
+        Privacy
+      </span>
+
+      <h1>
+        Privacy Policy
+      </h1>
+
+      <p class="updated">
+        Last updated: 7 October 2026
+      </p>
+
+
+      <div class="intro">
+
+        Lumidoku is an offline Sudoku game. This page explains
+        what the app does with information. It is written in
+        plain language; if something is unclear, write to
+        <a href="mailto:support@rizqtek.com">
+          support@rizqtek.com
+        </a>.
+
+      </div>
+
+
+      <!-- =========================
+           1
+           ========================= -->
+
+      <h2>
+        What stays on your phone
+      </h2>
+
+      <p>
+        Your games, statistics, streaks, settings and reminder
+        choice are stored only on your device.
+      </p>
+
+      <p>
+        Lumidoku has no account system and no server of its own,
+        so we never receive this information.
+      </p>
+
+      <p>
+        Uninstalling the app removes it.
+      </p>
+
+      <p>
+        If you switch on the daily reminder, the notification is
+        created on your phone at the time you chose. No
+        information is sent anywhere to do this.
+      </p>
+
+
+      <!-- =========================
+           2
+           ========================= -->
+
+      <h2>
+        Backup
+      </h2>
+
+      <p>
+        If Android Auto Backup is switched on for your phone,
+        your saved games and settings may be included in your
+        Google account's device backup, so they can come back
+        when you set up a new phone.
+      </p>
+
+      <p>
+        That backup is managed by Google, not by us, and you can
+        turn it off in your phone's settings.
+      </p>
+
+
+      <!-- =========================
+           3
+           ========================= -->
+
+      <h2>
+        Advertising
+      </h2>
+
+      <p>
+        Lumidoku shows ads from Google AdMob.
+      </p>
+
+      <p>
+        To show and measure ads, the AdMob software on your phone
+        may collect and send to Google:
+      </p>
+
+      <ul>
+
+        <li>
+          Your device's advertising ID
+        </li>
+
+        <li>
+          Your approximate location, derived from your IP address
+        </li>
+
+        <li>
+          How you interact with ads
+        </li>
+
+        <li>
+          Diagnostic information such as crashes and performance
+        </li>
+
+      </ul>
+
+      <p>
+        We do not receive this data about you personally.
+      </p>
+
+      <p>
+        Google's use of this information is described in the
+        <a
+          href="https://policies.google.com/technologies/ads"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google advertising policies
+        </a>
+        and
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google privacy policy
+        </a>.
+      </p>
+
+      <p>
+        If you are in the European Economic Area, the United
+        Kingdom or another region that requires it, Lumidoku asks
+        for your choice before any ad is requested.
+      </p>
+
+      <p>
+        You can change it any time in
+        <strong>
+          Settings → Privacy options
+        </strong>.
+      </p>
+
+      <p>
+        On Android you can also reset your advertising ID or
+        opt out of ads personalisation in your phone's
+        <strong>
+          Settings → Privacy → Ads
+        </strong>.
+      </p>
+
+      <p>
+        You can remove banner and full-screen ads permanently
+        with the <strong>Remove Ads</strong> purchase.
+        Watching a reward video is always optional.
+      </p>
+
+
+      <!-- =========================
+           4
+           ========================= -->
+
+      <h2>
+        Purchases
+      </h2>
+
+      <p>
+        Purchases are processed by Google Play.
+      </p>
+
+      <p>
+        We do not receive your payment details; we only learn,
+        through Google Play, that the Remove Ads purchase is
+        active so that ads can be switched off.
+      </p>
+
+
+      <!-- =========================
+           5
+           ========================= -->
+
+      <h2>
+        Children
+      </h2>
+
+      <p>
+        Lumidoku is meant for people aged 13 and over.
+      </p>
+
+      <p>
+        It is not directed at children under 13, and ads are
+        limited to teen-appropriate content.
+      </p>
+
+
+      <!-- =========================
+           6
+           ========================= -->
+
+      <h2>
+        Sharing a puzzle
+      </h2>
+
+      <p>
+        When you choose to share a result, the picture and
+        challenge code are handed to the app you pick
+        (for example, a messenger).
+      </p>
+
+      <p>
+        That is your choice each time; Lumidoku does not share
+        anything on its own.
+      </p>
+
+      <p>
+        A challenge code only contains the board type,
+        difficulty, puzzle number and your time; it contains
+        no personal information.
+      </p>
+
+
+      <!-- =========================
+           7
+           ========================= -->
+
+      <h2>
+        Changes
+      </h2>
+
+      <p>
+        If this policy changes, the new version will be
+        published at this address with a new date.
+      </p>
+
+
+      <!-- =========================
+           8
+           ========================= -->
+
+      <h2>
+        Contact
+      </h2>
+
+      <div class="contact-box">
+
+        <p>
+          <strong>
+            Vajid Ali
+          </strong>
+          <br>
+
+          <a href="mailto:support@rizqtek.com">
+            support@rizqtek.com
+          </a>
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+      © 2026 RizqTek. All rights reserved.
+    </div>
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        Lumidoku
+      </a>
+
+      <a href="privacy-policy.html">
+        Privacy
+      </a>
+
+      <a href="terms.html">
+        Terms
+      </a>
+
+      <a href="mailto:support@rizqtek.com">
+        Support
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
 </body>
 </html>
