@@ -1,30 +1,1749 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumidoku: Calm Sudoku</title>
-<meta name="description" content="Lumidoku is a calm, offline Sudoku game for Android: Classic, Mini, X, Jigsaw and Killer boards, daily challenges and a technique academy.">
-<style>
-  body { font: 16px/1.6 system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; color: #1b1b2a; }
-  h1 { font-size: 2rem; color: #5b5bd6; margin-bottom: .25rem; }
-  .tagline { font-size: 1.15rem; margin-top: 0; }
-  a { color: #5b5bd6; }
-  ul { padding-left: 1.2rem; }
-</style>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Lumidoku — Calm Sudoku for Android</title>
+
+  <meta
+    name="description"
+    content="Lumidoku is a calm Sudoku game for Android with Classic, Mini, X-Sudoku, Jigsaw and Killer boards, daily challenges and a technique academy."
+  >
+
+  <meta
+    name="keywords"
+    content="Lumidoku, Sudoku, Android Sudoku, offline Sudoku, Classic Sudoku, Killer Sudoku, Jigsaw Sudoku, X Sudoku"
+  >
+
+  <meta name="author" content="RizqTek">
+
+  <meta name="theme-color" content="#f7f7ff">
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Lumidoku — Calm Sudoku for Android"
+  >
+
+  <meta
+    property="og:description"
+    content="A calm Sudoku experience for Android. Five puzzle styles, daily challenges and a technique academy."
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <style>
+    :root {
+      --bg: #f8f8fc;
+      --surface: #ffffff;
+      --surface-soft: #f1f1fb;
+
+      --text: #171725;
+      --text-soft: #4d4d61;
+      --muted: #707087;
+
+      --primary: #5b5bd6;
+      --primary-dark: #4545b7;
+      --primary-soft: #ededff;
+
+      --border: #e4e4ee;
+
+      --success: #23865b;
+
+      --shadow-sm:
+        0 8px 24px rgba(35, 35, 75, 0.06);
+
+      --shadow-lg:
+        0 25px 70px rgba(35, 35, 75, 0.10);
+
+      --radius-lg: 24px;
+      --radius-md: 17px;
+
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(91, 91, 214, 0.13),
+          transparent 42%
+        ),
+        var(--bg);
+
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(
+        calc(100% - 40px),
+        var(--max-width)
+      );
+
+      margin-inline: auto;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background:
+        rgba(248, 248, 252, 0.88);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid
+        rgba(228, 228, 238, 0.85);
+    }
+
+    .nav {
+      min-height: 72px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 11px;
+
+      font-weight: 850;
+      letter-spacing: -0.025em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          145deg,
+          #7777ea,
+          #4d4dc2
+        );
+
+      box-shadow:
+        0 8px 22px
+        rgba(91, 91, 214, 0.25);
+
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+
+      gap: 26px;
+
+      color: var(--text-soft);
+
+      font-size: 0.93rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition:
+        color 160ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      padding: 9px 15px;
+
+      border-radius: 11px;
+
+      color: #ffffff !important;
+
+      background: var(--primary);
+
+      box-shadow:
+        0 7px 18px
+        rgba(91, 91, 214, 0.18);
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      padding:
+        105px 0
+        80px;
+
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+
+      padding: 7px 13px;
+
+      border-radius: 999px;
+
+      background: var(--primary-soft);
+
+      color: var(--primary-dark);
+
+      font-size: 0.82rem;
+      font-weight: 800;
+
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+
+      margin:
+        21px auto
+        18px;
+
+      font-size:
+        clamp(2.7rem, 7vw, 5.2rem);
+
+      line-height: 1.02;
+
+      letter-spacing: -0.06em;
+    }
+
+    .hero-description {
+      max-width: 700px;
+
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size:
+        clamp(1.05rem, 2vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 31px;
+    }
+
+    .button {
+      min-height: 48px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        0 20px;
+
+      border-radius: 13px;
+
+      border: 1px solid
+        var(--border);
+
+      font-weight: 800;
+
+      transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #ffffff;
+
+      background: var(--primary);
+
+      border-color:
+        var(--primary);
+
+      box-shadow:
+        0 12px 26px
+        rgba(91, 91, 214, 0.20);
+    }
+
+    .button-secondary {
+      background: var(--surface);
+    }
+
+    .hero-note {
+      margin-top: 15px;
+
+      color: #85859a;
+
+      font-size: 0.86rem;
+    }
+
+    /* =========================
+       SUDOKU VISUAL
+       ========================= */
+
+    .board-wrapper {
+      max-width: 440px;
+
+      margin:
+        65px auto
+        0;
+
+      padding: 20px;
+
+      background:
+        rgba(255, 255, 255, 0.9);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        27px;
+
+      box-shadow:
+        var(--shadow-lg);
+    }
+
+    .board {
+      aspect-ratio: 1;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(9, 1fr);
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border:
+        2px solid #505063;
+
+      border-radius: 10px;
+    }
+
+    .cell {
+      display: grid;
+      place-items: center;
+
+      min-width: 0;
+
+      border-right:
+        1px solid #ddddE7;
+
+      border-bottom:
+        1px solid #ddddE7;
+
+      color: #555568;
+
+      font-size:
+        clamp(0.68rem, 2.7vw, 0.98rem);
+
+      font-weight: 700;
+    }
+
+    .cell:nth-child(3n) {
+      border-right:
+        2px solid #77778a;
+    }
+
+    .cell:nth-child(9n) {
+      border-right: 0;
+    }
+
+    .cell:nth-child(n+19):nth-child(-n+27),
+    .cell:nth-child(n+46):nth-child(-n+54) {
+      border-bottom:
+        2px solid #77778a;
+    }
+
+    .cell:nth-child(n+73) {
+      border-bottom: 0;
+    }
+
+    .given {
+      color: #222232;
+    }
+
+    .highlight {
+      background: #ededff;
+      color: var(--primary-dark);
+    }
+
+    /* =========================
+       SECTIONS
+       ========================= */
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      margin:
+        0 0 12px;
+
+      font-size:
+        clamp(2rem, 4vw, 3rem);
+
+      line-height: 1.12;
+
+      letter-spacing: -0.045em;
+    }
+
+    .section-heading p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 1.02rem;
+    }
+
+    /* =========================
+       FEATURES
+       ========================= */
+
+    .features {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 17px;
+    }
+
+    .feature-card {
+      padding: 28px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius-lg);
+
+      box-shadow:
+        var(--shadow-sm);
+    }
+
+    .feature-number {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 18px;
+
+      border-radius: 13px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary);
+
+      font-size: 0.78rem;
+
+      font-weight: 900;
+    }
+
+    .feature-card h3 {
+      margin:
+        0 0 8px;
+
+      font-size: 1.08rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 0.94rem;
+    }
+
+    /* =========================
+       MODES
+       ========================= */
+
+    .modes {
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 12px;
+    }
+
+    .mode-card {
+      padding:
+        24px 15px;
+
+      text-align: center;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        18px;
+    }
+
+    .mode-card strong {
+      display: block;
+
+      margin-bottom: 5px;
+    }
+
+    .mode-card span {
+      color: var(--muted);
+
+      font-size: 0.83rem;
+    }
+
+    /* =========================
+       ACADEMY
+       ========================= */
+
+    .academy {
+      background:
+        var(--surface-soft);
+    }
+
+    .academy-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 17px;
+    }
+
+    .academy-card {
+      padding: 28px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius-lg);
+    }
+
+    .academy-card h3 {
+      margin:
+        0 0 9px;
+    }
+
+    .academy-card p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 0.94rem;
+    }
+
+    /* =========================
+       OFFLINE
+       ========================= */
+
+    .offline-section {
+      background:
+        #19192b;
+
+      color: #ffffff;
+    }
+
+    .offline-section
+    .section-heading p {
+      color: #bdbdd0;
+    }
+
+    .offline-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 17px;
+    }
+
+    .offline-card {
+      padding: 27px;
+
+      background:
+        rgba(255,255,255,0.045);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+      border-radius:
+        20px;
+    }
+
+    .offline-card h3 {
+      margin-top: 0;
+    }
+
+    .offline-card p {
+      margin-bottom: 0;
+
+      color: #bdbdd0;
+
+      font-size: 0.94rem;
+    }
+
+    /* =========================
+       FAQ
+       ========================= */
+
+    .faq {
+      max-width: 820px;
+    }
+
+    details {
+      padding:
+        18px 20px;
+
+      margin-bottom:
+        10px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        15px;
+    }
+
+    summary {
+      cursor: pointer;
+
+      font-weight: 750;
+    }
+
+    details p {
+      margin:
+        12px 0 0;
+
+      color: var(--muted);
+    }
+
+    /* =========================
+       CTA
+       ========================= */
+
+    .cta {
+      padding:
+        75px 30px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ededff,
+          #fafaff
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        30px;
+    }
+
+    .cta h2 {
+      margin:
+        0 0 12px;
+
+      font-size:
+        clamp(2rem, 4vw, 2.7rem);
+
+      letter-spacing:
+        -0.04em;
+    }
+
+    .cta p {
+      max-width: 600px;
+
+      margin:
+        0 auto 25px;
+
+      color: var(--muted);
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      margin-top: 90px;
+
+      padding:
+        48px 0;
+
+      border-top:
+        1px solid var(--border);
+
+      color:
+        var(--muted);
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        2fr 1fr 1fr;
+
+      gap: 45px;
+    }
+
+    .footer-brand {
+      color: var(--text);
+
+      font-weight: 850;
+
+      font-size: 1.05rem;
+    }
+
+    footer h3 {
+      margin-top: 0;
+
+      color: var(--text);
+
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      display: block;
+
+      margin:
+        8px 0;
+
+      font-size:
+        0.9rem;
+    }
+
+    footer a:hover {
+      color:
+        var(--primary);
+    }
+
+    .copyright {
+      margin-top:
+        35px;
+
+      padding-top:
+        20px;
+
+      border-top:
+        1px solid var(--border);
+
+      font-size:
+        0.82rem;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 820px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .features,
+      .academy-grid,
+      .offline-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modes {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+      }
+
+      .hero {
+        padding-top: 75px;
+      }
+
+      section {
+        padding:
+          70px 0;
+      }
+    }
+
+    @media (max-width: 430px) {
+
+      .container {
+        width:
+          min(
+            calc(100% - 28px),
+            var(--max-width)
+          );
+      }
+
+      .hero h1 {
+        font-size:
+          2.65rem;
+      }
+
+      .board-wrapper {
+        padding: 13px;
+
+        border-radius:
+          21px;
+      }
+
+      .modes {
+        grid-template-columns:
+          1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior:
+          auto;
+      }
+
+      .button {
+        transition:
+          none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<h1>Lumidoku</h1>
-<p class="tagline">Calm Sudoku for Android, made to be played anywhere, even without internet.</p>
 
-<ul>
-  <li>Five ways to play: Classic 9&times;9, Mini 6&times;6, X-Sudoku, Jigsaw and Killer</li>
-  <li>Daily and weekly challenges, streak freezes and monthly trophies</li>
-  <li>Technique Academy with 14 lessons on real puzzle positions</li>
-  <li>English and Hindi, light and dark themes, large text and TalkBack support</li>
-</ul>
+<!-- =========================
+     HEADER
+     ========================= -->
 
-<p><a href="privacy-policy.html">Privacy policy</a></p>
-<p>Questions or ideas? Write to <strong>support@rizqtek.com</strong>.</p>
+<header class="site-header">
+
+  <div class="container nav">
+
+    <a
+      class="brand"
+      href="#top"
+      aria-label="Lumidoku home"
+    >
+      <span class="brand-mark" aria-hidden="true">
+        L
+      </span>
+
+      <span>
+        Lumidoku
+      </span>
+    </a>
+
+    <nav
+      class="nav-links"
+      aria-label="Main navigation"
+    >
+
+      <a href="#features">
+        Features
+      </a>
+
+      <a href="#modes">
+        Game Modes
+      </a>
+
+      <a href="#academy">
+        Academy
+      </a>
+
+      <a href="#faq">
+        FAQ
+      </a>
+
+      <a href="#support">
+        Support
+      </a>
+
+      <a
+        class="nav-cta"
+        href="#download"
+      >
+        Get Lumidoku
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main id="top">
+
+  <!-- =========================
+       HERO
+       ========================= -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <span class="eyebrow">
+        Calm Sudoku for Android
+      </span>
+
+      <h1>
+        A calmer way to play Sudoku.
+      </h1>
+
+      <p class="hero-description">
+        Lumidoku brings together classic Sudoku and challenging
+        variants, daily challenges and a technique academy in a
+        focused experience designed to be played anywhere.
+      </p>
+
+      <div class="hero-actions">
+
+        <!-- Replace # with Google Play URL when published -->
+        <a
+          class="button button-primary"
+          href="#download"
+        >
+          Get Lumidoku
+        </a>
+
+        <a
+          class="button button-secondary"
+          href="#features"
+        >
+          Explore Lumidoku
+        </a>
+
+      </div>
+
+      <p class="hero-note">
+        Android · Designed for offline play
+      </p>
+
+
+      <!-- CSS-ONLY SUDOKU BOARD -->
+
+      <div
+        class="board-wrapper"
+        aria-label="Decorative Sudoku board"
+      >
+
+        <div class="board">
+
+          <span class="cell given">5</span>
+          <span class="cell"></span>
+          <span class="cell given">3</span>
+          <span class="cell"></span>
+          <span class="cell given">7</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">9</span>
+
+          <span class="cell"></span>
+          <span class="cell given">6</span>
+          <span class="cell"></span>
+          <span class="cell given">1</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">5</span>
+          <span class="cell"></span>
+
+          <span class="cell given">9</span>
+          <span class="cell"></span>
+          <span class="cell given">8</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">6</span>
+          <span class="cell"></span>
+
+          <span class="cell"></span>
+          <span class="cell given">8</span>
+          <span class="cell"></span>
+          <span class="cell given">6</span>
+          <span class="cell"></span>
+          <span class="cell given">9</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">3</span>
+
+          <span class="cell given">4</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">8</span>
+          <span class="cell highlight">5</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">1</span>
+
+          <span class="cell given">7</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">2</span>
+          <span class="cell"></span>
+          <span class="cell given">4</span>
+          <span class="cell"></span>
+          <span class="cell given">8</span>
+          <span class="cell"></span>
+
+          <span class="cell"></span>
+          <span class="cell given">2</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">9</span>
+          <span class="cell"></span>
+          <span class="cell given">6</span>
+
+          <span class="cell"></span>
+          <span class="cell given">5</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">6</span>
+          <span class="cell given">1</span>
+          <span class="cell"></span>
+          <span class="cell given">7</span>
+          <span class="cell"></span>
+
+          <span class="cell given">6</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+          <span class="cell given">5</span>
+          <span class="cell"></span>
+          <span class="cell given">8</span>
+          <span class="cell given">1</span>
+          <span class="cell"></span>
+          <span class="cell"></span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FEATURES
+       ========================= -->
+
+  <section id="features">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>
+          Everything you need for a better Sudoku session.
+        </h2>
+
+        <p>
+          Lumidoku keeps the focus on solving while giving you
+          different ways to play, learn and challenge yourself.
+        </p>
+
+      </div>
+
+
+      <div class="features">
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            01
+          </div>
+
+          <h3>
+            Five ways to play
+          </h3>
+
+          <p>
+            Classic 9×9, Mini 6×6, X-Sudoku, Jigsaw and Killer
+            boards give you different ways to challenge your logic.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            02
+          </div>
+
+          <h3>
+            Daily & weekly challenges
+          </h3>
+
+          <p>
+            Take on structured daily and weekly challenges, with
+            streak freezes and monthly trophies.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            03
+          </div>
+
+          <h3>
+            Technique Academy
+          </h3>
+
+          <p>
+            Learn Sudoku techniques through 14 lessons based on
+            real puzzle positions.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            04
+          </div>
+
+          <h3>
+            Play anywhere
+          </h3>
+
+          <p>
+            Lumidoku is designed to be played even when you don't
+            have an internet connection.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            05
+          </div>
+
+          <h3>
+            English & Hindi
+          </h3>
+
+          <p>
+            Choose the language that feels most comfortable for
+            your Sudoku sessions.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            06
+          </div>
+
+          <h3>
+            Accessibility focused
+          </h3>
+
+          <p>
+            Large text, light and dark themes and TalkBack support
+            help make Lumidoku easier to use.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       GAME MODES
+       ========================= -->
+
+  <section id="modes">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>
+          Five ways to play.
+        </h2>
+
+        <p>
+          Start with familiar Sudoku or explore variants that
+          change how you think about the board.
+        </p>
+
+      </div>
+
+
+      <div class="modes">
+
+        <div class="mode-card">
+
+          <strong>
+            Classic
+          </strong>
+
+          <span>
+            9×9 Sudoku
+          </span>
+
+        </div>
+
+
+        <div class="mode-card">
+
+          <strong>
+            Mini
+          </strong>
+
+          <span>
+            6×6 Sudoku
+          </span>
+
+        </div>
+
+
+        <div class="mode-card">
+
+          <strong>
+            X-Sudoku
+          </strong>
+
+          <span>
+            Diagonal challenge
+          </span>
+
+        </div>
+
+
+        <div class="mode-card">
+
+          <strong>
+            Jigsaw
+          </strong>
+
+          <span>
+            Irregular regions
+          </span>
+
+        </div>
+
+
+        <div class="mode-card">
+
+          <strong>
+            Killer
+          </strong>
+
+          <span>
+            Cage-based logic
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ACADEMY
+       ========================= -->
+
+  <section
+    id="academy"
+    class="academy"
+  >
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>
+          Don't just play. Learn how to solve.
+        </h2>
+
+        <p>
+          The Technique Academy helps you understand Sudoku
+          techniques using real puzzle positions.
+        </p>
+
+      </div>
+
+
+      <div class="academy-grid">
+
+        <article class="academy-card">
+
+          <h3>
+            Learn
+          </h3>
+
+          <p>
+            Explore 14 lessons covering Sudoku solving techniques
+            through practical examples.
+          </p>
+
+        </article>
+
+
+        <article class="academy-card">
+
+          <h3>
+            Understand
+          </h3>
+
+          <p>
+            See techniques in the context of actual puzzle
+            positions instead of learning them only as theory.
+          </p>
+
+        </article>
+
+
+        <article class="academy-card">
+
+          <h3>
+            Improve
+          </h3>
+
+          <p>
+            Build a broader solving toolkit and become more
+            confident with different puzzle situations.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       OFFLINE
+       ========================= -->
+
+  <section class="offline-section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>
+          Sudoku that fits your day.
+        </h2>
+
+        <p>
+          Lumidoku is designed around a calm, focused experience
+          that doesn't depend on being constantly connected.
+        </p>
+
+      </div>
+
+
+      <div class="offline-grid">
+
+        <article class="offline-card">
+
+          <h3>
+            Play offline
+          </h3>
+
+          <p>
+            Enjoy Sudoku even when an internet connection isn't
+            available.
+          </p>
+
+        </article>
+
+
+        <article class="offline-card">
+
+          <h3>
+            Your pace
+          </h3>
+
+          <p>
+            Solve a quick Mini puzzle or settle into a longer
+            Classic, Jigsaw or Killer challenge.
+          </p>
+
+        </article>
+
+
+        <article class="offline-card">
+
+          <h3>
+            Keep learning
+          </h3>
+
+          <p>
+            Use the Technique Academy to turn difficult positions
+            into opportunities to improve.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FAQ
+       ========================= -->
+
+  <section id="faq">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <h2>
+          Frequently asked questions.
+        </h2>
+
+        <p>
+          Quick answers about Lumidoku.
+        </p>
+
+      </div>
+
+
+      <div class="faq">
+
+        <details>
+
+          <summary>
+            What is Lumidoku?
+          </summary>
+
+          <p>
+            Lumidoku is a Sudoku game for Android focused on a
+            calm and accessible puzzle experience.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Which Sudoku modes are available?
+          </summary>
+
+          <p>
+            Lumidoku includes Classic 9×9, Mini 6×6, X-Sudoku,
+            Jigsaw and Killer boards.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Can I play without internet?
+          </summary>
+
+          <p>
+            Lumidoku is designed to be played without requiring
+            an internet connection for its core Sudoku experience.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Does Lumidoku support Hindi?
+          </summary>
+
+          <p>
+            Yes. Lumidoku supports English and Hindi.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Does Lumidoku support accessibility?
+          </summary>
+
+          <p>
+            Lumidoku includes large text, light and dark themes
+            and TalkBack support.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            How can I contact support?
+          </summary>
+
+          <p>
+            Email
+            <a href="mailto:support@rizqtek.com">
+              support@rizqtek.com
+            </a>
+            with your question or feedback.
+          </p>
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SUPPORT CTA
+       ========================= -->
+
+  <section id="support">
+
+    <div class="container">
+
+      <div class="cta">
+
+        <h2>
+          Have an idea or found a problem?
+        </h2>
+
+        <p>
+          We welcome feedback, bug reports and ideas that can make
+          Lumidoku a better Sudoku experience.
+        </p>
+
+        <a
+          class="button button-primary"
+          href="mailto:support@rizqtek.com"
+        >
+          Contact Support
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <div class="footer-brand">
+          Lumidoku
+        </div>
+
+        <p>
+          Calm Sudoku for Android — with five puzzle styles,
+          daily challenges and a technique academy.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Lumidoku
+        </h3>
+
+        <a href="#features">
+          Features
+        </a>
+
+        <a href="#modes">
+          Game Modes
+        </a>
+
+        <a href="#academy">
+          Technique Academy
+        </a>
+
+        <a href="#faq">
+          FAQ
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Legal & Support
+        </h3>
+
+        <a href="privacy-policy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms of Service
+        </a>
+
+        <a href="mailto:support@rizqtek.com">
+          Contact Support
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 RizqTek. All rights reserved.
+
+    </div>
+
+  </div>
+
+</footer>
+
 </body>
 </html>
