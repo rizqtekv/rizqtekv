@@ -1,1 +1,1604 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Lumidoku FAQ — Frequently Asked Questions</title>
+
+  <meta
+    name="description"
+    content="Frequently asked questions about Lumidoku, including Sudoku modes, offline play, challenges, Technique Academy, accessibility and support."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f7f7ff"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Lumidoku FAQ"
+  >
+
+  <meta
+    property="og:description"
+    content="Find answers to common questions about Lumidoku Sudoku for Android."
+  >
+
+  <style>
+    :root {
+      --bg: #f8f8fc;
+      --surface: #ffffff;
+      --surface-soft: #f1f1fb;
+
+      --text: #171725;
+      --text-soft: #4d4d61;
+      --muted: #707087;
+
+      --primary: #5b5bd6;
+      --primary-dark: #4545b7;
+      --primary-soft: #ededff;
+
+      --border: #e4e4ee;
+
+      --max-width: 1000px;
+
+      --shadow:
+        0 20px 60px rgba(35, 35, 75, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(91, 91, 214, 0.12),
+          transparent 40%
+        ),
+        var(--bg);
+
+      line-height: 1.65;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background:
+        rgba(248, 248, 252, 0.88);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(228, 228, 238, 0.85);
+    }
+
+    .nav {
+      width:
+        min(
+          calc(100% - 40px),
+          1120px
+        );
+
+      min-height: 72px;
+
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 11px;
+
+      color: var(--text);
+
+      font-weight: 850;
+
+      letter-spacing: -0.025em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          145deg,
+          #7777ea,
+          #4d4dc2
+        );
+
+      box-shadow:
+        0 8px 22px
+        rgba(91, 91, 214, 0.25);
+
+      font-weight: 900;
+    }
+
+    .back-link {
+      color: var(--text-soft);
+
+      font-size: 0.92rem;
+
+      font-weight: 650;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      padding:
+        72px 0
+        90px;
+    }
+
+    .container {
+      width:
+        min(
+          calc(100% - 40px),
+          var(--max-width)
+        );
+
+      margin: 0 auto;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      max-width:
+        760px;
+
+      margin:
+        0 auto
+        58px;
+
+      text-align:
+        center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      padding:
+        6px 12px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary-dark);
+
+      font-size:
+        0.78rem;
+
+      font-weight:
+        800;
+    }
+
+    .hero h1 {
+      margin:
+        18px 0 13px;
+
+      font-size:
+        clamp(2.3rem, 5vw, 3.7rem);
+
+      line-height:
+        1.06;
+
+      letter-spacing:
+        -0.055em;
+    }
+
+    .hero p {
+      margin:
+        0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        clamp(1rem, 2vw, 1.13rem);
+    }
+
+    /* =========================
+       CATEGORY NAVIGATION
+       ========================= */
+
+    .category-nav {
+      display:
+        flex;
+
+      justify-content:
+        center;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        9px;
+
+      margin-bottom:
+        48px;
+    }
+
+    .category-nav a {
+      padding:
+        8px 13px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        999px;
+
+      background:
+        var(--surface);
+
+      color:
+        var(--text-soft);
+
+      font-size:
+        0.85rem;
+
+      font-weight:
+        700;
+    }
+
+    .category-nav a:hover {
+      color:
+        var(--primary-dark);
+
+      background:
+        var(--primary-soft);
+
+      border-color:
+        #dcdcff;
+    }
+
+    /* =========================
+       FAQ GROUP
+       ========================= */
+
+    .faq-group {
+      margin-bottom:
+        58px;
+    }
+
+    .group-heading {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        12px;
+
+      margin-bottom:
+        17px;
+    }
+
+    .group-number {
+      width:
+        34px;
+
+      height:
+        34px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      flex:
+        0 0 auto;
+
+      border-radius:
+        10px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary);
+
+      font-size:
+        0.76rem;
+
+      font-weight:
+        900;
+    }
+
+    .group-heading h2 {
+      margin:
+        0;
+
+      font-size:
+        1.45rem;
+
+      letter-spacing:
+        -0.03em;
+    }
+
+    details {
+      padding:
+        19px 21px;
+
+      margin-bottom:
+        10px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        15px;
+
+      box-shadow:
+        0 4px 16px
+        rgba(35, 35, 75, 0.025);
+    }
+
+    details[open] {
+      border-color:
+        #dadaf5;
+    }
+
+    summary {
+      cursor:
+        pointer;
+
+      list-style:
+        none;
+
+      padding-right:
+        25px;
+
+      position:
+        relative;
+
+      font-weight:
+        750;
+    }
+
+    summary::-webkit-details-marker {
+      display:
+        none;
+    }
+
+    summary::after {
+      content:
+        "+";
+
+      position:
+        absolute;
+
+      right:
+        0;
+
+      top:
+        50%;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        var(--primary);
+
+      font-size:
+        1.25rem;
+
+      font-weight:
+        500;
+    }
+
+    details[open] summary::after {
+      content:
+        "−";
+    }
+
+    details p {
+      margin:
+        13px 0 0;
+
+      padding-top:
+        13px;
+
+      border-top:
+        1px solid #eeeeF5;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.94rem;
+    }
+
+    details ul {
+      margin:
+        13px 0 0;
+
+      padding-left:
+        22px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.94rem;
+    }
+
+    details li {
+      margin-bottom:
+        6px;
+    }
+
+    /* =========================
+       CTA
+       ========================= */
+
+    .cta {
+      padding:
+        65px 30px;
+
+      margin-top:
+        15px;
+
+      text-align:
+        center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ededff,
+          #fafaff
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        28px;
+    }
+
+    .cta h2 {
+      margin:
+        0 0 10px;
+
+      font-size:
+        clamp(1.9rem, 4vw, 2.6rem);
+
+      letter-spacing:
+        -0.04em;
+    }
+
+    .cta p {
+      max-width:
+        600px;
+
+      margin:
+        0 auto 23px;
+
+      color:
+        var(--muted);
+    }
+
+    .cta-button {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      min-height:
+        48px;
+
+      padding:
+        0 19px;
+
+      border-radius:
+        12px;
+
+      color:
+        #ffffff;
+
+      background:
+        var(--primary);
+
+      font-weight:
+        800;
+
+      box-shadow:
+        0 10px 24px
+        rgba(91, 91, 214, 0.20);
+    }
+
+    .cta-button:hover {
+      background:
+        var(--primary-dark);
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      padding:
+        30px 0
+        45px;
+
+      border-top:
+        1px solid var(--border);
+
+      color:
+        var(--muted);
+    }
+
+    .footer-inner {
+      width:
+        min(
+          calc(100% - 40px),
+          1000px
+        );
+
+      margin:
+        0 auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      font-size:
+        0.86rem;
+    }
+
+    .footer-links {
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        18px;
+    }
+
+    .footer-links a {
+      color:
+        var(--muted);
+
+      font-weight:
+        600;
+    }
+
+    .footer-links a:hover {
+      color:
+        var(--primary);
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 700px) {
+
+      .nav {
+        width:
+          min(
+            calc(100% - 28px),
+            1120px
+          );
+
+        min-height:
+          64px;
+      }
+
+      main {
+        padding:
+          50px 0
+          65px;
+      }
+
+      .container {
+        width:
+          min(
+            calc(100% - 28px),
+            var(--max-width)
+          );
+      }
+
+      .hero h1 {
+        font-size:
+          2.4rem;
+      }
+
+      .category-nav {
+        justify-content:
+          flex-start;
+
+        overflow-x:
+          auto;
+
+        flex-wrap:
+          nowrap;
+
+        padding-bottom:
+          5px;
+
+        scrollbar-width:
+          none;
+      }
+
+      .category-nav::-webkit-scrollbar {
+        display:
+          none;
+      }
+
+      .category-nav a {
+        white-space:
+          nowrap;
+      }
+
+      .group-heading h2 {
+        font-size:
+          1.25rem;
+      }
+
+      .cta {
+        padding:
+          50px 22px;
+      }
+
+      .footer-inner {
+        width:
+          min(
+            calc(100% - 28px),
+            1000px
+          );
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior:
+          auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+     ========================= -->
+
+<header>
+
+  <div class="nav">
+
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Lumidoku home"
+    >
+
+      <span
+        class="brand-mark"
+        aria-hidden="true"
+      >
+        L
+      </span>
+
+      <span>
+        Lumidoku
+      </span>
+
+    </a>
+
+    <a
+      class="back-link"
+      href="index.html"
+    >
+      ← Back to Lumidoku
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+     ========================= -->
+
+<main>
+
+  <div class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <span class="eyebrow">
+        Lumidoku FAQ
+      </span>
+
+      <h1>
+        Questions, answered.
+      </h1>
+
+      <p>
+        Find quick answers about Lumidoku's puzzles, challenges,
+        Technique Academy, offline experience, accessibility
+        and support.
+      </p>
+
+    </section>
+
+
+    <!-- CATEGORY NAV -->
+
+    <nav
+      class="category-nav"
+      aria-label="FAQ categories"
+    >
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#gameplay">
+        Gameplay
+      </a>
+
+      <a href="#challenges">
+        Challenges
+      </a>
+
+      <a href="#academy">
+        Academy
+      </a>
+
+      <a href="#accessibility">
+        Accessibility
+      </a>
+
+      <a href="#privacy">
+        Privacy
+      </a>
+
+      <a href="#support">
+        Support
+      </a>
+
+    </nav>
+
+
+    <!-- =========================
+         ABOUT
+         ========================= -->
+
+    <section
+      id="about"
+      class="faq-group"
+    >
+
+      <div class="group-heading">
+
+        <span class="group-number">
+          01
+        </span>
+
+        <h2>
+          About Lumidoku
+        </h2>
+
+      </div>
+
+
+      <details open>
+
+        <summary>
+          What is Lumidoku?
+        </summary>
+
+        <p>
+          Lumidoku is a Sudoku game for Android focused on a
+          calm, accessible and focused puzzle experience.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Who is Lumidoku for?
+        </summary>
+
+        <p>
+          Lumidoku is designed for people who enjoy Sudoku,
+          from players who want a familiar Classic board to
+          players looking for more challenging Sudoku variants.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Is Lumidoku only for experienced Sudoku players?
+        </summary>
+
+        <p>
+          No. You can start with Classic or Mini Sudoku and use
+          the Technique Academy to gradually learn more solving
+          techniques.
+        </p>
+
+      </details>
+
+    </section>
+
+
+    <!-- =========================
+         GAMEPLAY
+         ========================= -->
+
+    <section
+      id="gameplay"
+      class="faq-group"
+    >
+
+      <div class="group-heading">
+
+        <span class="group-number">
+          02
+        </span>
+
+        <h2>
+          Gameplay
+        </h2>
+
+      </div>
+
+
+      <details open>
+
+        <summary>
+          Which Sudoku modes are available?
+        </summary>
+
+        <p>
+          Lumidoku includes five puzzle styles:
+        </p>
+
+        <ul>
+
+          <li>
+            Classic 9×9
+          </li>
+
+          <li>
+            Mini 6×6
+          </li>
+
+          <li>
+            X-Sudoku
+          </li>
+
+          <li>
+            Jigsaw
+          </li>
+
+          <li>
+            Killer
+          </li>
+
+        </ul>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          What is Classic Sudoku?
+        </summary>
+
+        <p>
+          Classic Sudoku uses the familiar 9×9 grid where the
+          objective is to complete the board while following
+          standard Sudoku rules.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          What is Mini Sudoku?
+        </summary>
+
+        <p>
+          Mini Sudoku uses a smaller 6×6 board for a more compact
+          puzzle experience.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          What is X-Sudoku?
+        </summary>
+
+        <p>
+          X-Sudoku adds diagonal constraints to the standard
+          Sudoku challenge.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          What is Jigsaw Sudoku?
+        </summary>
+
+        <p>
+          Jigsaw Sudoku uses irregular regions instead of the
+          standard 3×3 regions.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          What is Killer Sudoku?
+        </summary>
+
+        <p>
+          Killer Sudoku adds cage-based constraints to the
+          puzzle, creating a different type of logical challenge.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Can I play Lumidoku without internet?
+        </summary>
+
+        <p>
+          Lumidoku is designed to be played without requiring
+          an internet connection for its core Sudoku experience.
+        </p>
+
+      </details>
+
+    </section>
+
+
+    <!-- =========================
+         CHALLENGES
+         ========================= -->
+
+    <section
+      id="challenges"
+      class="faq-group"
+    >
+
+      <div class="group-heading">
+
+        <span class="group-number">
+          03
+        </span>
+
+        <h2>
+          Challenges & Progress
+        </h2>
+
+      </div>
+
+
+      <details>
+
+        <summary>
+          Does Lumidoku have daily challenges?
+        </summary>
+
+        <p>
+          Yes. Lumidoku includes daily challenges designed to
+          give players a reason to return for a focused puzzle
+          session.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Are there weekly challenges?
+        </summary>
+
+        <p>
+          Yes. Lumidoku includes weekly challenges in addition
+          to its daily challenge experience.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          What are streak freezes?
+        </summary>
+
+        <p>
+          Streak freezes are part of Lumidoku's challenge and
+          progression experience. Their purpose is to help
+          protect a challenge streak when a player misses a day.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          What are monthly trophies?
+        </summary>
+
+        <p>
+          Monthly trophies are part of Lumidoku's progression
+          system and provide an additional way to recognize
+          continued challenge participation.
+        </p>
+
+      </details>
+
+    </section>
+
+
+    <!-- =========================
+         ACADEMY
+         ========================= -->
+
+    <section
+      id="academy"
+      class="faq-group"
+    >
+
+      <div class="group-heading">
+
+        <span class="group-number">
+          04
+        </span>
+
+        <h2>
+          Technique Academy
+        </h2>
+
+      </div>
+
+
+      <details>
+
+        <summary>
+          What is the Technique Academy?
+        </summary>
+
+        <p>
+          The Technique Academy is a learning area that teaches
+          Sudoku solving techniques using real puzzle positions.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          How many lessons are available?
+        </summary>
+
+        <p>
+          Lumidoku currently describes the Technique Academy as
+          containing 14 lessons.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Do I need to complete the Academy before playing Sudoku?
+        </summary>
+
+        <p>
+          No. The Academy is a learning feature. You can play
+          Sudoku independently and use the Academy when you want
+          to improve your solving knowledge.
+        </p>
+
+      </details>
+
+    </section>
+
+
+    <!-- =========================
+         ACCESSIBILITY
+         ========================= -->
+
+    <section
+      id="accessibility"
+      class="faq-group"
+    >
+
+      <div class="group-heading">
+
+        <span class="group-number">
+          05
+        </span>
+
+        <h2>
+          Accessibility & Languages
+        </h2>
+
+      </div>
+
+
+      <details>
+
+        <summary>
+          Does Lumidoku support Hindi?
+        </summary>
+
+        <p>
+          Yes. Lumidoku supports English and Hindi.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Does Lumidoku have a dark theme?
+        </summary>
+
+        <p>
+          Yes. Lumidoku provides light and dark themes.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Does Lumidoku support large text?
+        </summary>
+
+        <p>
+          Lumidoku supports large text to improve readability.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Does Lumidoku support TalkBack?
+        </summary>
+
+        <p>
+          Yes. Lumidoku includes TalkBack support.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Where can I find more accessibility information?
+        </summary>
+
+        <p>
+          Visit the
+          <a href="accessibility.html">
+            Lumidoku Accessibility
+          </a>
+          page for more information.
+        </p>
+
+      </details>
+
+    </section>
+
+
+    <!-- =========================
+         PRIVACY
+         ========================= -->
+
+    <section
+      id="privacy"
+      class="faq-group"
+    >
+
+      <div class="group-heading">
+
+        <span class="group-number">
+          06
+        </span>
+
+        <h2>
+          Privacy & Data
+        </h2>
+
+      </div>
+
+
+      <details>
+
+        <summary>
+          Where is my game progress stored?
+        </summary>
+
+        <p>
+          According to the Lumidoku Privacy Policy, games,
+          statistics, streaks, settings and reminder choices
+          are stored on your device.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Does Lumidoku have an account system?
+        </summary>
+
+        <p>
+          No. Lumidoku does not use an account system according
+          to its current Privacy Policy.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Does Lumidoku show advertisements?
+        </summary>
+
+        <p>
+          Yes. The current Privacy Policy states that Lumidoku
+          uses Google AdMob for advertising.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Can I remove advertisements?
+        </summary>
+
+        <p>
+          The current Privacy Policy states that users can
+          permanently remove banner and full-screen advertisements
+          through the Remove Ads purchase.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Does Lumidoku use Google Play for purchases?
+        </summary>
+
+        <p>
+          Yes. Purchases are processed through Google Play.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Where can I read the complete privacy policy?
+        </summary>
+
+        <p>
+          Read the complete
+          <a href="privacy-policy.html">
+            Lumidoku Privacy Policy
+          </a>.
+        </p>
+
+      </details>
+
+    </section>
+
+
+    <!-- =========================
+         SUPPORT
+         ========================= -->
+
+    <section
+      id="support"
+      class="faq-group"
+    >
+
+      <div class="group-heading">
+
+        <span class="group-number">
+          07
+        </span>
+
+        <h2>
+          Support
+        </h2>
+
+      </div>
+
+
+      <details>
+
+        <summary>
+          How do I report a problem?
+        </summary>
+
+        <p>
+          Visit the
+          <a href="support.html">
+            Lumidoku Support Center
+          </a>
+          or email
+          <a href="mailto:support@rizqtek.com">
+            support@rizqtek.com
+          </a>.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          What information should I include in a bug report?
+        </summary>
+
+        <p>
+          Include your Android version, Lumidoku version if
+          available, the Sudoku mode you were using, what you
+          expected to happen and what actually happened.
+          A screenshot can also be useful.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Can I suggest a new feature?
+        </summary>
+
+        <p>
+          Yes. We welcome suggestions and feedback.
+          Contact
+          <a href="mailto:support@rizqtek.com">
+            support@rizqtek.com
+          </a>
+          with your idea.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          How can I contact Lumidoku?
+        </summary>
+
+        <p>
+          Email
+          <a href="mailto:support@rizqtek.com">
+            support@rizqtek.com
+          </a>
+          for questions, feedback or technical support.
+        </p>
+
+      </details>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+         ========================= -->
+
+    <section class="cta">
+
+      <h2>
+        Didn't find your answer?
+      </h2>
+
+      <p>
+        Our support page has more information about reporting
+        problems and getting help with Lumidoku.
+      </p>
+
+      <a
+        class="cta-button"
+        href="support.html"
+      >
+        Visit Support Center
+      </a>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+      © 2026 RizqTek. All rights reserved.
+    </div>
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        Lumidoku
+      </a>
+
+      <a href="privacy-policy.html">
+        Privacy
+      </a>
+
+      <a href="terms.html">
+        Terms
+      </a>
+
+      <a href="support.html">
+        Support
+      </a>
+
+      <a href="accessibility.html">
+        Accessibility
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
