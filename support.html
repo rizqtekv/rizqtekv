@@ -1,1 +1,1260 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Lumidoku Support — Help & Contact</title>
+
+  <meta
+    name="description"
+    content="Get help with Lumidoku. Find answers to common questions, report problems, share feedback or contact Lumidoku support."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f7f7ff"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Lumidoku Support"
+  >
+
+  <meta
+    property="og:description"
+    content="Get help, report a problem or share feedback with the Lumidoku team."
+  >
+
+  <style>
+    :root {
+      --bg: #f8f8fc;
+      --surface: #ffffff;
+      --surface-soft: #f1f1fb;
+
+      --text: #171725;
+      --text-soft: #4d4d61;
+      --muted: #707087;
+
+      --primary: #5b5bd6;
+      --primary-dark: #4545b7;
+      --primary-soft: #ededff;
+
+      --success: #23865b;
+      --success-soft: #eaf8f1;
+
+      --border: #e4e4ee;
+
+      --max-width: 1000px;
+
+      --shadow:
+        0 20px 60px rgba(35, 35, 75, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(91, 91, 214, 0.12),
+          transparent 40%
+        ),
+        var(--bg);
+
+      line-height: 1.65;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background:
+        rgba(248, 248, 252, 0.88);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(228, 228, 238, 0.85);
+    }
+
+    .nav {
+      width:
+        min(
+          calc(100% - 40px),
+          1120px
+        );
+
+      min-height: 72px;
+
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 11px;
+
+      color: var(--text);
+
+      font-weight: 850;
+
+      letter-spacing: -0.025em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          145deg,
+          #7777ea,
+          #4d4dc2
+        );
+
+      box-shadow:
+        0 8px 22px
+        rgba(91, 91, 214, 0.25);
+
+      font-weight: 900;
+    }
+
+    .back-link {
+      color: var(--text-soft);
+
+      font-size: 0.92rem;
+
+      font-weight: 650;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      padding:
+        72px 0
+        90px;
+    }
+
+    .container {
+      width:
+        min(
+          calc(100% - 40px),
+          var(--max-width)
+        );
+
+      margin: 0 auto;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      text-align: center;
+
+      max-width: 760px;
+
+      margin:
+        0 auto
+        55px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      padding:
+        6px 12px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary-dark);
+
+      font-size:
+        0.78rem;
+
+      font-weight:
+        800;
+    }
+
+    .hero h1 {
+      margin:
+        18px 0 13px;
+
+      font-size:
+        clamp(2.3rem, 5vw, 3.7rem);
+
+      line-height:
+        1.06;
+
+      letter-spacing:
+        -0.055em;
+    }
+
+    .hero p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size:
+        clamp(1rem, 2vw, 1.13rem);
+    }
+
+    /* =========================
+       CONTACT CARD
+       ========================= */
+
+    .contact-card {
+      display: grid;
+
+      grid-template-columns:
+        1.4fr 0.8fr;
+
+      gap: 18px;
+
+      margin-bottom: 55px;
+    }
+
+    .contact-main,
+    .contact-side {
+      padding: 30px;
+
+      background: var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .contact-main h2,
+    .contact-side h2 {
+      margin:
+        0 0 10px;
+
+      font-size:
+        1.3rem;
+
+      letter-spacing:
+        -0.025em;
+    }
+
+    .contact-main p,
+    .contact-side p {
+      margin:
+        0 0 20px;
+
+      color:
+        var(--muted);
+    }
+
+    .email-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding:
+        0 19px;
+
+      border-radius:
+        12px;
+
+      color: #ffffff;
+
+      background:
+        var(--primary);
+
+      font-weight:
+        800;
+
+      box-shadow:
+        0 10px 24px
+        rgba(91, 91, 214, 0.20);
+    }
+
+    .email-button:hover {
+      background:
+        var(--primary-dark);
+    }
+
+    .contact-side {
+      background:
+        var(--surface-soft);
+
+      box-shadow:
+        none;
+    }
+
+    .response-note {
+      display: flex;
+
+      gap: 10px;
+
+      align-items: flex-start;
+
+      padding:
+        14px;
+
+      border-radius:
+        13px;
+
+      background:
+        var(--success-soft);
+
+      color:
+        #216f50;
+
+      font-size:
+        0.9rem;
+
+      font-weight:
+        600;
+    }
+
+    /* =========================
+       SUPPORT OPTIONS
+       ========================= */
+
+    .section-heading {
+      max-width:
+        700px;
+
+      margin-bottom:
+        30px;
+    }
+
+    .section-heading h2 {
+      margin:
+        0 0 9px;
+
+      font-size:
+        clamp(1.8rem, 4vw, 2.5rem);
+
+      line-height:
+        1.12;
+
+      letter-spacing:
+        -0.04em;
+    }
+
+    .section-heading p {
+      margin: 0;
+
+      color:
+        var(--muted);
+    }
+
+    .support-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        16px;
+
+      margin-bottom:
+        75px;
+    }
+
+    .support-card {
+      padding:
+        27px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        20px;
+    }
+
+    .support-icon {
+      width:
+        44px;
+
+      height:
+        44px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      margin-bottom:
+        17px;
+
+      border-radius:
+        13px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary);
+
+      font-weight:
+        900;
+    }
+
+    .support-card h3 {
+      margin:
+        0 0 8px;
+
+      font-size:
+        1.05rem;
+    }
+
+    .support-card p {
+      margin:
+        0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.92rem;
+    }
+
+    .support-card a {
+      display:
+        inline-block;
+
+      margin-top:
+        13px;
+
+      color:
+        var(--primary-dark);
+
+      font-weight:
+        750;
+
+      font-size:
+        0.9rem;
+    }
+
+    /* =========================
+       BEFORE CONTACTING
+       ========================= */
+
+    .info-section {
+      padding:
+        32px;
+
+      margin-bottom:
+        75px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+    }
+
+    .info-section h2 {
+      margin:
+        0 0 13px;
+
+      font-size:
+        1.35rem;
+    }
+
+    .info-section p {
+      margin:
+        0 0 13px;
+
+      color:
+        var(--muted);
+    }
+
+    .info-section ul {
+      margin:
+        15px 0 0;
+
+      padding-left:
+        21px;
+
+      color:
+        var(--text-soft);
+    }
+
+    .info-section li {
+      margin-bottom:
+        8px;
+    }
+
+    /* =========================
+       FAQ
+       ========================= */
+
+    .faq {
+      max-width:
+        850px;
+
+      margin-bottom:
+        75px;
+    }
+
+    details {
+      padding:
+        18px 20px;
+
+      margin-bottom:
+        10px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        15px;
+    }
+
+    summary {
+      cursor:
+        pointer;
+
+      font-weight:
+        750;
+    }
+
+    details p {
+      margin:
+        12px 0 0;
+
+      color:
+        var(--muted);
+    }
+
+    /* =========================
+       FINAL CTA
+       ========================= */
+
+    .cta {
+      padding:
+        65px 30px;
+
+      text-align:
+        center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ededff,
+          #fafaff
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        28px;
+    }
+
+    .cta h2 {
+      margin:
+        0 0 10px;
+
+      font-size:
+        clamp(1.9rem, 4vw, 2.6rem);
+
+      letter-spacing:
+        -0.04em;
+    }
+
+    .cta p {
+      max-width:
+        590px;
+
+      margin:
+        0 auto 23px;
+
+      color:
+        var(--muted);
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      padding:
+        30px 0
+        45px;
+
+      border-top:
+        1px solid var(--border);
+
+      color:
+        var(--muted);
+    }
+
+    .footer-inner {
+      width:
+        min(
+          calc(100% - 40px),
+          1000px
+        );
+
+      margin:
+        0 auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      font-size:
+        0.86rem;
+    }
+
+    .footer-links {
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        18px;
+    }
+
+    .footer-links a {
+      color:
+        var(--muted);
+
+      font-weight:
+        600;
+    }
+
+    .footer-links a:hover {
+      color:
+        var(--primary);
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 800px) {
+
+      .nav {
+        width:
+          min(
+            calc(100% - 28px),
+            1120px
+          );
+
+        min-height:
+          64px;
+      }
+
+      main {
+        padding:
+          50px 0
+          65px;
+      }
+
+      .container {
+        width:
+          min(
+            calc(100% - 28px),
+            var(--max-width)
+          );
+      }
+
+      .contact-card,
+      .support-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .footer-inner {
+        width:
+          min(
+            calc(100% - 28px),
+            1000px
+          );
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
+        font-size:
+          2.35rem;
+      }
+
+      .contact-main,
+      .contact-side,
+      .support-card,
+      .info-section {
+        padding:
+          23px;
+      }
+
+      .cta {
+        padding:
+          50px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior:
+          auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+     ========================= -->
+
+<header>
+
+  <div class="nav">
+
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Lumidoku home"
+    >
+
+      <span
+        class="brand-mark"
+        aria-hidden="true"
+      >
+        L
+      </span>
+
+      <span>
+        Lumidoku
+      </span>
+
+    </a>
+
+    <a
+      class="back-link"
+      href="index.html"
+    >
+      ← Back to Lumidoku
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+     ========================= -->
+
+<main>
+
+  <div class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <span class="eyebrow">
+        Lumidoku Support
+      </span>
+
+      <h1>
+        How can we help?
+      </h1>
+
+      <p>
+        Found a problem, have a question, or have an idea for
+        making Lumidoku better? We're here to listen.
+      </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-card">
+
+      <div class="contact-main">
+
+        <h2>
+          Contact Lumidoku Support
+        </h2>
+
+        <p>
+          The fastest way to reach us is by email. Tell us what
+          happened and we'll review your message.
+        </p>
+
+        <a
+          class="email-button"
+          href="mailto:support@rizqtek.com?subject=Lumidoku%20Support"
+        >
+          Email Support
+        </a>
+
+      </div>
+
+
+      <div class="contact-side">
+
+        <h2>
+          Support email
+        </h2>
+
+        <p>
+          Use this address for questions, feedback and
+          problem reports.
+        </p>
+
+        <strong>
+          support@rizqtek.com
+        </strong>
+
+        <div
+          class="response-note"
+          style="margin-top: 18px;"
+        >
+          <span aria-hidden="true">
+            ✓
+          </span>
+
+          <span>
+            Please include useful details so we can understand
+            and reproduce the problem.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SUPPORT OPTIONS -->
+
+    <section>
+
+      <div class="section-heading">
+
+        <h2>
+          What can we help with?
+        </h2>
+
+        <p>
+          Choose the type of help you need.
+        </p>
+
+      </div>
+
+
+      <div class="support-grid">
+
+        <article class="support-card">
+
+          <div class="support-icon">
+            ?
+          </div>
+
+          <h3>
+            General questions
+          </h3>
+
+          <p>
+            Questions about Sudoku modes, challenges, the
+            Technique Academy or app features.
+          </p>
+
+          <a
+            href="mailto:support@rizqtek.com?subject=Lumidoku%20Question"
+          >
+            Ask a question →
+          </a>
+
+        </article>
+
+
+        <article class="support-card">
+
+          <div class="support-icon">
+            !
+          </div>
+
+          <h3>
+            Report a problem
+          </h3>
+
+          <p>
+            Tell us about crashes, unexpected behaviour,
+            incorrect results or other technical problems.
+          </p>
+
+          <a
+            href="mailto:support@rizqtek.com?subject=Lumidoku%20Bug%20Report"
+          >
+            Report a problem →
+          </a>
+
+        </article>
+
+
+        <article class="support-card">
+
+          <div class="support-icon">
+            +
+          </div>
+
+          <h3>
+            Suggestions & ideas
+          </h3>
+
+          <p>
+            Have an idea for a new puzzle mode, feature,
+            accessibility improvement or better experience?
+          </p>
+
+          <a
+            href="mailto:support@rizqtek.com?subject=Lumidoku%20Feedback"
+          >
+            Share feedback →
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- REPORTING GUIDE -->
+
+    <section class="info-section">
+
+      <h2>
+        Reporting a technical problem
+      </h2>
+
+      <p>
+        If something isn't working correctly, a few extra details
+        can make it much easier for us to investigate.
+      </p>
+
+      <ul>
+
+        <li>
+          Your Android version
+        </li>
+
+        <li>
+          Your Lumidoku app version, if available
+        </li>
+
+        <li>
+          The Sudoku mode you were playing
+        </li>
+
+        <li>
+          What you expected to happen
+        </li>
+
+        <li>
+          What actually happened
+        </li>
+
+        <li>
+          The steps that caused the problem
+        </li>
+
+        <li>
+          A screenshot or screen recording, if useful
+        </li>
+
+      </ul>
+
+      <p style="margin-top: 18px;">
+        Please do not send passwords, payment information,
+        authentication codes or other sensitive information
+        in a support email.
+      </p>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section>
+
+      <div class="section-heading">
+
+        <h2>
+          Quick answers
+        </h2>
+
+        <p>
+          Some common support questions can be answered without
+          sending an email.
+        </p>
+
+      </div>
+
+
+      <div class="faq">
+
+        <details>
+
+          <summary>
+            Can Lumidoku be played without internet?
+          </summary>
+
+          <p>
+            Lumidoku is designed to be played without requiring
+            an internet connection for its core Sudoku experience.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Which Sudoku modes are available?
+          </summary>
+
+          <p>
+            Lumidoku includes Classic 9×9, Mini 6×6, X-Sudoku,
+            Jigsaw and Killer.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Does Lumidoku support Hindi?
+          </summary>
+
+          <p>
+            Yes. Lumidoku supports English and Hindi.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Where can I read the privacy policy?
+          </summary>
+
+          <p>
+            You can read the complete
+            <a href="privacy-policy.html">
+              Lumidoku Privacy Policy
+            </a>
+            at any time.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Where can I read the terms?
+          </summary>
+
+          <p>
+            The
+            <a href="terms.html">
+              Lumidoku Terms of Service
+            </a>
+            explain the terms that apply when using the app.
+          </p>
+
+        </details>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+
+    <section>
+
+      <div class="cta">
+
+        <h2>
+          Still need help?
+        </h2>
+
+        <p>
+          Send us an email with your question or problem.
+          We're always interested in making Lumidoku better.
+        </p>
+
+        <a
+          class="email-button"
+          href="mailto:support@rizqtek.com?subject=Lumidoku%20Support"
+        >
+          Contact Support
+        </a>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+      © 2026 RizqTek. All rights reserved.
+    </div>
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        Lumidoku
+      </a>
+
+      <a href="privacy-policy.html">
+        Privacy
+      </a>
+
+      <a href="terms.html">
+        Terms
+      </a>
+
+      <a href="faq.html">
+        FAQ
+      </a>
+
+      <a href="mailto:support@rizqtek.com">
+        Support
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
