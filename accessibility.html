@@ -1,1 +1,1281 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Lumidoku Accessibility</title>
+
+  <meta
+    name="description"
+    content="Learn about accessibility features in Lumidoku, including TalkBack support, large text, light and dark themes, English and Hindi, and how to report accessibility issues."
+  >
+
+  <meta
+    name="theme-color"
+    content="#f7f7ff"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Lumidoku Accessibility"
+  >
+
+  <meta
+    property="og:description"
+    content="Accessibility information for Lumidoku Sudoku for Android."
+  >
+
+  <style>
+    :root {
+      --bg: #f8f8fc;
+      --surface: #ffffff;
+      --surface-soft: #f1f1fb;
+
+      --text: #171725;
+      --text-soft: #4d4d61;
+      --muted: #707087;
+
+      --primary: #5b5bd6;
+      --primary-dark: #4545b7;
+      --primary-soft: #ededff;
+
+      --success: #23865b;
+      --success-soft: #eaf8f1;
+
+      --border: #e4e4ee;
+
+      --max-width: 1000px;
+
+      --shadow:
+        0 20px 60px rgba(35, 35, 75, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(91, 91, 214, 0.12),
+          transparent 40%
+        ),
+        var(--bg);
+
+      line-height: 1.65;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background:
+        rgba(248, 248, 252, 0.88);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(228, 228, 238, 0.85);
+    }
+
+    .nav {
+      width:
+        min(
+          calc(100% - 40px),
+          1120px
+        );
+
+      min-height: 72px;
+
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 11px;
+
+      color: var(--text);
+
+      font-weight: 850;
+
+      letter-spacing: -0.025em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          145deg,
+          #7777ea,
+          #4d4dc2
+        );
+
+      box-shadow:
+        0 8px 22px
+        rgba(91, 91, 214, 0.25);
+
+      font-weight: 900;
+    }
+
+    .back-link {
+      color: var(--text-soft);
+
+      font-size: 0.92rem;
+
+      font-weight: 650;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      padding:
+        72px 0
+        90px;
+    }
+
+    .container {
+      width:
+        min(
+          calc(100% - 40px),
+          var(--max-width)
+        );
+
+      margin: 0 auto;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      max-width:
+        760px;
+
+      margin:
+        0 auto
+        58px;
+
+      text-align:
+        center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+
+      padding:
+        6px 12px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary-dark);
+
+      font-size:
+        0.78rem;
+
+      font-weight:
+        800;
+    }
+
+    .hero h1 {
+      margin:
+        18px 0 13px;
+
+      font-size:
+        clamp(2.3rem, 5vw, 3.7rem);
+
+      line-height:
+        1.06;
+
+      letter-spacing:
+        -0.055em;
+    }
+
+    .hero p {
+      margin: 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        clamp(1rem, 2vw, 1.13rem);
+    }
+
+    /* =========================
+       ACCESSIBILITY SUMMARY
+       ========================= */
+
+    .summary {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap:
+        14px;
+
+      margin-bottom:
+        70px;
+    }
+
+    .summary-card {
+      padding:
+        23px 18px;
+
+      text-align:
+        center;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        19px;
+
+      box-shadow:
+        0 5px 20px
+        rgba(35, 35, 75, 0.035);
+    }
+
+    .summary-icon {
+      width:
+        43px;
+
+      height:
+        43px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      margin:
+        0 auto
+        14px;
+
+      border-radius:
+        13px;
+
+      background:
+        var(--primary-soft);
+
+      color:
+        var(--primary);
+
+      font-weight:
+        900;
+    }
+
+    .summary-card strong {
+      display:
+        block;
+
+      margin-bottom:
+        4px;
+
+      font-size:
+        0.95rem;
+    }
+
+    .summary-card span {
+      color:
+        var(--muted);
+
+      font-size:
+        0.8rem;
+    }
+
+    /* =========================
+       SECTIONS
+       ========================= */
+
+    .accessibility-section {
+      margin-bottom:
+        58px;
+    }
+
+    .section-heading {
+      max-width:
+        720px;
+
+      margin-bottom:
+        25px;
+    }
+
+    .section-heading h2 {
+      margin:
+        0 0 9px;
+
+      font-size:
+        clamp(1.8rem, 4vw, 2.5rem);
+
+      line-height:
+        1.12;
+
+      letter-spacing:
+        -0.04em;
+    }
+
+    .section-heading p {
+      margin:
+        0;
+
+      color:
+        var(--muted);
+    }
+
+    .feature-grid {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        16px;
+    }
+
+    .feature-card {
+      padding:
+        27px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        21px;
+    }
+
+    .feature-card h3 {
+      margin:
+        0 0 9px;
+
+      font-size:
+        1.08rem;
+    }
+
+    .feature-card p {
+      margin:
+        0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.94rem;
+    }
+
+    /* =========================
+       TALKBACK
+       ========================= */
+
+    .talkback-box {
+      padding:
+        30px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .talkback-box h2 {
+      margin:
+        0 0 12px;
+
+      font-size:
+        1.45rem;
+    }
+
+    .talkback-box p {
+      margin:
+        0 0 14px;
+
+      color:
+        var(--muted);
+    }
+
+    .talkback-box ol {
+      margin:
+        18px 0 0;
+
+      padding-left:
+        22px;
+
+      color:
+        var(--text-soft);
+    }
+
+    .talkback-box li {
+      margin-bottom:
+        9px;
+    }
+
+    /* =========================
+       DESIGN PRINCIPLES
+       ========================= */
+
+    .principles {
+      padding:
+        30px;
+
+      background:
+        var(--surface-soft);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+    }
+
+    .principles h2 {
+      margin:
+        0 0 15px;
+
+      font-size:
+        1.4rem;
+    }
+
+    .principles ul {
+      margin:
+        0;
+
+      padding-left:
+        22px;
+
+      color:
+        var(--text-soft);
+    }
+
+    .principles li {
+      margin-bottom:
+        9px;
+    }
+
+    /* =========================
+       KNOWN LIMITATIONS
+       ========================= */
+
+    .limitations {
+      padding:
+        26px 28px;
+
+      background:
+        #fffdf8;
+
+      border:
+        1px solid #eee5cf;
+
+      border-radius:
+        20px;
+    }
+
+    .limitations h2 {
+      margin:
+        0 0 10px;
+
+      font-size:
+        1.35rem;
+    }
+
+    .limitations p {
+      margin:
+        0;
+
+      color:
+        #6e624c;
+
+      font-size:
+        0.94rem;
+    }
+
+    /* =========================
+       CONTACT CTA
+       ========================= */
+
+    .cta {
+      padding:
+        65px 30px;
+
+      text-align:
+        center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ededff,
+          #fafaff
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        28px;
+    }
+
+    .cta h2 {
+      margin:
+        0 0 10px;
+
+      font-size:
+        clamp(1.9rem, 4vw, 2.6rem);
+
+      letter-spacing:
+        -0.04em;
+    }
+
+    .cta p {
+      max-width:
+        610px;
+
+      margin:
+        0 auto 23px;
+
+      color:
+        var(--muted);
+    }
+
+    .cta-button {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      min-height:
+        48px;
+
+      padding:
+        0 19px;
+
+      border-radius:
+        12px;
+
+      color:
+        #ffffff;
+
+      background:
+        var(--primary);
+
+      font-weight:
+        800;
+
+      box-shadow:
+        0 10px 24px
+        rgba(91, 91, 214, 0.20);
+    }
+
+    .cta-button:hover {
+      background:
+        var(--primary-dark);
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      padding:
+        30px 0
+        45px;
+
+      border-top:
+        1px solid var(--border);
+
+      color:
+        var(--muted);
+    }
+
+    .footer-inner {
+      width:
+        min(
+          calc(100% - 40px),
+          1000px
+        );
+
+      margin:
+        0 auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        20px;
+
+      font-size:
+        0.86rem;
+    }
+
+    .footer-links {
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        18px;
+    }
+
+    .footer-links a {
+      color:
+        var(--muted);
+
+      font-weight:
+        600;
+    }
+
+    .footer-links a:hover {
+      color:
+        var(--primary);
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 800px) {
+
+      .nav {
+        width:
+          min(
+            calc(100% - 28px),
+            1120px
+          );
+
+        min-height:
+          64px;
+      }
+
+      main {
+        padding:
+          50px 0
+          65px;
+      }
+
+      .container {
+        width:
+          min(
+            calc(100% - 28px),
+            var(--max-width)
+          );
+      }
+
+      .summary {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .footer-inner {
+        width:
+          min(
+            calc(100% - 28px),
+            1000px
+          );
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
+        font-size:
+          2.35rem;
+      }
+
+      .summary {
+        grid-template-columns:
+          1fr 1fr;
+
+        gap:
+          9px;
+      }
+
+      .summary-card {
+        padding:
+          19px 10px;
+      }
+
+      .feature-card,
+      .talkback-box,
+      .principles,
+      .limitations {
+        padding:
+          23px;
+      }
+
+      .cta {
+        padding:
+          50px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior:
+          auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+     ========================= -->
+
+<header>
+
+  <div class="nav">
+
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="Lumidoku home"
+    >
+
+      <span
+        class="brand-mark"
+        aria-hidden="true"
+      >
+        L
+      </span>
+
+      <span>
+        Lumidoku
+      </span>
+
+    </a>
+
+    <a
+      class="back-link"
+      href="index.html"
+    >
+      ← Back to Lumidoku
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+     ========================= -->
+
+<main>
+
+  <div class="container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <span class="eyebrow">
+        Accessibility
+      </span>
+
+      <h1>
+        Sudoku designed to be easier to use.
+      </h1>
+
+      <p>
+        Lumidoku includes accessibility and personalization
+        features intended to make the Sudoku experience more
+        comfortable for different players.
+      </p>
+
+    </section>
+
+
+    <!-- SUMMARY -->
+
+    <section class="summary">
+
+      <div class="summary-card">
+
+        <div
+          class="summary-icon"
+          aria-hidden="true"
+        >
+          A
+        </div>
+
+        <strong>
+          Large text
+        </strong>
+
+        <span>
+          Improved readability
+        </span>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <div
+          class="summary-icon"
+          aria-hidden="true"
+        >
+          ◐
+        </div>
+
+        <strong>
+          Light & dark
+        </strong>
+
+        <span>
+          Choose your theme
+        </span>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <div
+          class="summary-icon"
+          aria-hidden="true"
+        >
+          Aअ
+        </div>
+
+        <strong>
+          English & Hindi
+        </strong>
+
+        <span>
+          Two supported languages
+        </span>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <div
+          class="summary-icon"
+          aria-hidden="true"
+        >
+          ◉
+        </div>
+
+        <strong>
+          TalkBack
+        </strong>
+
+        <span>
+          Android accessibility support
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="accessibility-section">
+
+      <div class="section-heading">
+
+        <h2>
+          Accessibility features
+        </h2>
+
+        <p>
+          These are the accessibility-related capabilities
+          currently described for Lumidoku.
+        </p>
+
+      </div>
+
+
+      <div class="feature-grid">
+
+        <article class="feature-card">
+
+          <h3>
+            Large text
+          </h3>
+
+          <p>
+            Lumidoku supports larger text to make information
+            easier to read and reduce visual strain.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <h3>
+            TalkBack support
+          </h3>
+
+          <p>
+            Lumidoku includes support for Android TalkBack,
+            allowing users who rely on screen-reading technology
+            to interact with the app.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <h3>
+            Light theme
+          </h3>
+
+          <p>
+            A light visual theme provides a bright interface for
+            players who prefer a traditional light appearance.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <h3>
+            Dark theme
+          </h3>
+
+          <p>
+            A dark theme provides an alternative visual
+            presentation for players who prefer darker interfaces.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <h3>
+            English
+          </h3>
+
+          <p>
+            English is supported throughout the Lumidoku
+            experience.
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <h3>
+            Hindi
+          </h3>
+
+          <p>
+            Hindi is supported to make Lumidoku accessible to
+            more players.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- TALKBACK -->
+
+    <section class="accessibility-section">
+
+      <div class="talkback-box">
+
+        <h2>
+          Using Lumidoku with TalkBack
+        </h2>
+
+        <p>
+          Lumidoku supports Android's TalkBack accessibility
+          service. If TalkBack is enabled on your device, use
+          the standard Android accessibility gestures and controls
+          to navigate supported Lumidoku elements.
+        </p>
+
+        <p>
+          TalkBack behavior can vary depending on your Android
+          version, device manufacturer and accessibility settings.
+        </p>
+
+        <ol>
+
+          <li>
+            Open your Android accessibility settings.
+          </li>
+
+          <li>
+            Enable TalkBack if it is not already enabled.
+          </li>
+
+          <li>
+            Open Lumidoku and navigate through the available
+            controls using TalkBack.
+          </li>
+
+        </ol>
+
+      </div>
+
+    </section>
+
+
+    <!-- DESIGN PRINCIPLES -->
+
+    <section class="accessibility-section">
+
+      <div class="principles">
+
+        <h2>
+          Our accessibility approach
+        </h2>
+
+        <ul>
+
+          <li>
+            Keep important information readable and easy to find.
+          </li>
+
+          <li>
+            Support different visual preferences through light
+            and dark themes.
+          </li>
+
+          <li>
+            Provide larger text for improved readability.
+          </li>
+
+          <li>
+            Support Android's TalkBack experience.
+          </li>
+
+          <li>
+            Provide both English and Hindi.
+          </li>
+
+          <li>
+            Continue improving the experience based on real
+            player feedback.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </section>
+
+
+    <!-- LIMITATIONS -->
+
+    <section class="accessibility-section">
+
+      <div class="limitations">
+
+        <h2>
+          Accessibility limitations
+        </h2>
+
+        <p>
+          Accessibility support can vary across Android versions,
+          device manufacturers, screen sizes and system accessibility
+          settings. Some interactions or content may not behave
+          identically on every device. If you encounter an
+          accessibility problem, please report it so we can
+          investigate and improve the experience.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section>
+
+      <div class="cta">
+
+        <h2>
+          Found an accessibility problem?
+        </h2>
+
+        <p>
+          Tell us what happened, which Android device you use,
+          and which accessibility feature you were using.
+          Your feedback helps us make Lumidoku better.
+        </p>
+
+        <a
+          class="cta-button"
+          href="mailto:support@rizqtek.com?subject=Lumidoku%20Accessibility%20Feedback"
+        >
+          Report Accessibility Issue
+        </a>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div>
+      © 2026 RizqTek. All rights reserved.
+    </div>
+
+    <div class="footer-links">
+
+      <a href="index.html">
+        Lumidoku
+      </a>
+
+      <a href="privacy-policy.html">
+        Privacy
+      </a>
+
+      <a href="terms.html">
+        Terms
+      </a>
+
+      <a href="faq.html">
+        FAQ
+      </a>
+
+      <a href="support.html">
+        Support
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
