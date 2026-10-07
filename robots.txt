@@ -1,1 +1,5 @@
 
+User-agent: *
+Allow: /
+
+Sitemap: https://rizqtekv.github.io/rizqtekv/sitemap.xml
